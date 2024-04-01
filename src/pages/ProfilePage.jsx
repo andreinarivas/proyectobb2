@@ -25,10 +25,11 @@ export default function ProfilePage() {
 
   const handleFriend = async(user, username)=>{
     if(!friends){
-      await addFriend(user.username, username)
+      console.log(username, user)
+      await addFriend(user, username)
       setFriends(true)
     }else{
-      await removeFriend(user.username, username)
+      await removeFriend(user, username)
       setFriends(false)
     }
   }

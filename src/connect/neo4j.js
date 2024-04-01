@@ -170,7 +170,7 @@ export const addFriend = async(username, friend)=>{
     console.log(serverInfo)
     let session = driver.session({database:'neo4j'})
     const {records} = await session.executeWrite(async wt =>{
-      const result = await wt.run('MATCH(p:Person {username:$user}),(f:Person {username:$username}) CREATE (p)-[t:IS_FRIENDS_WITH]->(f) return t', { user:username, username:friend })
+      const result = await wt.run('MATCH(p:Person {username:$username}),(f:Person {username:$friend}) CREATE (p)-[t:IS_FRIENDS_WITH]->(f) return t', { username:username, friend:friend })
       return result;
     })
     driver.close()
@@ -195,7 +195,7 @@ export const removeFriend = async(username, friend)=>{
     console.log(serverInfo)
     let session = driver.session({database:'neo4j'})
     const {records} = await session.executeWrite(async wt =>{
-      const result = await wt.run('MATCH(p:Person {username:$user}),(f:Person {username:$username}), (p)-[t:IS_FRIENDS_WITH]->(f) DELETE t', { username:username, username:friend })
+      const result = await wt.run('MATCH(p:Person {username:$username}),(f:Person {username:$friend}), (p)-[t:IS_FRIENDS_WITH]->(f) DELETE t', { username:username, friend:friend })
       return result;
     })
     driver.close()
