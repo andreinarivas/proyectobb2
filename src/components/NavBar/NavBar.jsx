@@ -13,7 +13,7 @@ export default function NavBar(){
 
         return <Boton style={PRINCIPAL} display="Iniciar Sesion" to='/login'/>
       }else{
-        return <Boton style={PRINCIPAL} display="Mi perfil" to='/profile'/>
+        return <Boton style={PRINCIPAL} display="Mi perfil" to='/myprofile'/>
       }
 
     }

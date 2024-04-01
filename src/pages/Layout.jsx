@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 import { UserContext, UserContextProvider } from "../context/UserContext";
 import ProtectedRoute from "../components/Protected/ProtectedRoute";
+import LoadingPage from "./LoadingPage";
 
 
 
@@ -11,7 +12,8 @@ export default function Layout() {
     
     <div>
       <UserContextProvider>
-       
+       <LoadingPage>
+
 
         
           
@@ -23,6 +25,7 @@ export default function Layout() {
               
             </main>
     
+       </LoadingPage>
         
     </UserContextProvider>
     </div>
