@@ -34,13 +34,13 @@ export default function RegisterPage() {
         case 'email already exists':
           return(
             <p className="text-sm bg-yellow/25 text-yellow font-semibold text-center rounded-full py-1">
-            Ya existe una cuenta con este correo
+            There is an existing account with the entered email
           </p>)
           break;
         case 'username already exists':
           return(
             <p className="text-sm bg-yellow/25 text-yellow font-semibold text-center rounded-full py-1">
-            Ya existe ese usuario
+            There is an existing acount with the entered username 
           </p>)
 
           break;
@@ -59,41 +59,41 @@ export default function RegisterPage() {
   return (
     <div className='flex justify-center'>
     <div className='w-2/5 border-4 border-yellow rounded-2xl my-14 px-10 py-10 flex flex-col justify-center '>
-        <h1 className='text-center font-black text-yellow text-4xl mb-8'>Registrarse</h1>
+        <h1 className='text-center font-black text-yellow text-4xl mb-8'>Sign Up</h1>
         <FormProvider {...methods}>
 
-        <Input label="Ingresa tu correo" outlined={true} type="email"
+        <Input label="Enter your email" outlined={true} type="email"
                     name="email"
                     id="email"
                     validation={{
-                      required: { value: true, message: "Obligatorio" },
+                      required: { value: true, message: "Required" },
                       pattern: {
                         value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                        message: "Por favor, introduzca un correo valido",
+                        message: "Please enter a valid email",
                       },
                     }}/>
-        <Input label="Ingresa tu contraseña" outlined={true} type="text"
+        <Input label="Enter your password" outlined={true} type="text"
                     name="password"
                     id="password"
                     validation={{
-                      required: { value: true, message: "Obligatorio" },
+                      required: { value: true, message: "Required" },
                       minLength: {
                         value: 5,
-                        message: "Su clave debe tener al menos 5 caracteres",
+                        message: "Your password must have at least 5 characters",
                       },
                     }}/>
-        <Input label="Ingresa tu usuario" outlined={true} type="text"
+        <Input label="Enter your username" outlined={true} type="text"
                     name="username"
                     id="username"
                     validation={{
-                      required: { value: true, message: "Obligatorio" },
+                      required: { value: true, message: "Required" },
                      
                     }}/>
         {handleError()}
-        <Button style={BODY} display="Crear usuario" action={methods.handleSubmit(onSubmit)}/>
+        <Button style={BODY} display="Create user" action={methods.handleSubmit(onSubmit)}/>
         </FormProvider>
-        <p className='text-black text-center'>Ya tienes cuenta?</p>
-        <Button style={AUXILIAR} display="Iniciar Sesion" to="/login"/>
+        <p className='text-black text-center'>Already have an account?</p>
+        <Button style={AUXILIAR} display="Log In" to="/login"/>
     </div>
     </div>
   )
