@@ -30,28 +30,28 @@ export default function SearchBar({filter, setFilter, search, setSearch, setSear
               value="ingredient"
               onClick={handleFilter}
             >
-              Ingrediente
+              Ingredient
             </button>
             <button
               className={filter === "author" ? selected : deselected}
               value="author"
               onClick={handleFilter}
             >
-              Autor
+              Author
             </button>
             <button
               className={filter === "cuisine" ? selected : deselected}
               value="cuisine"
               onClick={handleFilter}
             >
-              Cocina
+              Cuisine
             </button>
             <button
               className={filter === "user" ? selected : deselected}
               value="user"
               onClick={handleFilter}
             >
-              Usuario
+              User
             </button>
             {filter ? (
               <button
@@ -85,11 +85,11 @@ export default function SearchBar({filter, setFilter, search, setSearch, setSear
           onClick={(e)=>{handleSearch(search,filter)}}
           
         >
-          Buscar
+          Search
         </button>
     
     <div className='flex gap-4 mt-4'>
-        <p className='text-white'>Buscar por:</p>
+        <p className='text-white'>Search by:</p>
         <div className='flex gap-2'>{handleLook()}</div>
 
     </div>

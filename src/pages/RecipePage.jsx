@@ -9,6 +9,7 @@ import { checkFavorite, getRecipeDetail } from '../connect/detail'
 import MiniTile from '../components/MiniRecipe/MiniRecipe'
 import { useUserContext } from '../context/UserContext'
 import { addToFavorite, removeFavorite } from '../connect/neo4j'
+import styles from './Home.module.css'
 
 export default function RecipePage() {
   const {user}=useUserContext();
@@ -43,7 +44,7 @@ export default function RecipePage() {
        }}/>
       }else{
         
-        return <Button style={TOFAVORITE} display="Add from Favorites"
+        return <Button style={TOFAVORITE} display="Add to Favorites"
         action={(e)=>{
           e.preventDefault()
           handleFavortie(recipe_id, user.username)
@@ -61,7 +62,7 @@ export default function RecipePage() {
   },[favorite])
 
   if(loading){
-    return <><p>cargando</p></>
+    return <div className={styles.container}><p className={styles.loading}>Loading...</p></div>
   }
   if(!loading && detail){
   return (

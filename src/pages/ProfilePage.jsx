@@ -8,6 +8,7 @@ import { useUserContext } from '../context/UserContext'
 import { checkFriends } from '../connect/detail'
 import { getUserInfo } from '../connect/query'
 import {addFriend, removeFriend} from "../connect/neo4j"
+import styles from './Home.module.css'
 
 export default function ProfilePage() {
   const {user} = useUserContext();
@@ -61,7 +62,7 @@ export default function ProfilePage() {
   },[friends])
 
   if(loading){
-    return<><p>cargando</p></>
+    return <div className={styles.container}><p className={styles.loading}>Loading...</p></div>
   }
 if(!loading && info){
   return (
@@ -74,13 +75,13 @@ if(!loading && info){
         <div className='flex flex-col justify-center content-between w-fit'>
         
 
-          <h2 className='font-bold'>Cocinas favoritas</h2>
+          <h2 className='font-bold'>Favorite cuisines</h2>
           <div className="flex  gap-2 flex-wrap my-2">
             {info.c.map(element => {
               return <MiniTile type display={element} />
             })}
             </div>
-          <h2  className='font-bold'>Ingredientes favoritos</h2>
+          <h2  className='font-bold'>Favorite ingredients</h2>
           <div className="flex  gap-2 flex-wrap my-2">
 
 {info.i.map(element => {
@@ -89,14 +90,14 @@ if(!loading && info){
 </div>
          </div>
         <div className='w-fit'>
-          <h2 className='font-bold'>Le ha gustado...</h2>
+          <h2 className='font-bold'>Has liked...</h2>
           {info.r.map(element => {
               return <MiniTile type display={element} />
             })}
         </div>
         </div>
         <div className='w-fit'>
-          <h2 className='font-bold'>Conoce a...</h2>
+          <h2 className='font-bold'>Knows...</h2>
           <div className="flex  gap-2 flex-wrap my-2 justify-end">
 
           {info.f.map(element => {
@@ -108,7 +109,7 @@ if(!loading && info){
     
        </div>
         <Button
-        display="Regresar"
+        display="Back"
         style={BODY}
         action={() => { navigate(-1); }}
       />

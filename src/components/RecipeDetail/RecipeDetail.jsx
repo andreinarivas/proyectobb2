@@ -23,7 +23,7 @@ export default function RecipeDetail({recipe}) {
             Cook Time: {recipe.cookingTime.low}
             </div>
           </div>
-          <Button display="Detallar" style={AUXILIAR} to={RECIPE_DETAILS(recipe.id)} />
+          <Button display="Details" style={AUXILIAR} to={RECIPE_DETAILS(recipe.id)} />
         </div>
       </div>
     );

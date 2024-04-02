@@ -5,6 +5,7 @@ import { AUXILIAR, BODY, FAVORITE } from "../components/Button/styles";
 import MiniTile from "../components/MiniRecipe/MiniRecipe";
 import { useUserContext } from "../context/UserContext";
 import { getUserInfo } from "../connect/query";
+import styles from './Home.module.css'
 
 
 export default function MyProfilePage() {
@@ -27,7 +28,7 @@ export default function MyProfilePage() {
   }, [isLoading])
 
   if(isLoading){
-    return (<><p>cargando</p></>)
+    return <div className={styles.container}><p className={styles.loading}>Loading...</p></div>
   }
   if(!isLoading && info!=undefined){
     console.log( info)
@@ -40,13 +41,13 @@ export default function MyProfilePage() {
         </h1>
         <div className="flex justify-between items-start">
           <div className="flex flex-col justify-center content-between w-fit">
-            <h2 className="font-bold">Cocinas favoritas</h2>
+            <h2 className="font-bold">Favorite cuisines</h2>
             <div className="flex  gap-2 flex-wrap my-2">
             {info.c.map(element => {
               return <MiniTile type display={element} />
             })}
             </div>
-            <h2 className="font-bold">Ingredientes favoritos</h2>
+            <h2 className="font-bold">Favorite ingredients</h2>
             <div className="flex  gap-2 flex-wrap my-2">
 
             {info.i.map(element => {
@@ -55,7 +56,7 @@ export default function MyProfilePage() {
             </div>
           </div>
           <div className="w-fit flex flex-col pl-10">
-            <h2 className="font-bold text-left">Le ha gustado...</h2>
+            <h2 className="font-bold text-left">Has liked...</h2>
             <div className="flex  gap-2 flex-wrap my-2 justify-start">
 
             {info.r.map(element => {
@@ -65,7 +66,7 @@ export default function MyProfilePage() {
           </div>
         </div>
         <div className="w-fit flex flex-col justify-center">
-          <h2 className="font-bold">Conoce a...</h2>
+          <h2 className="font-bold">Knows...</h2>
           <div className="flex  gap-2 flex-wrap my-2 justify-end">
 
           {info.f.map(element => {

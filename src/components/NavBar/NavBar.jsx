@@ -11,9 +11,9 @@ export default function NavBar(){
     const handleUser= ()=>{
       if(!user){
 
-        return <Boton style={PRINCIPAL} display="Iniciar Sesion" to='/login'/>
+        return <Boton style={PRINCIPAL} display="Log In" to='/login'/>
       }else{
-        return <Boton style={PRINCIPAL} display="Mi perfil" to='/myprofile'/>
+        return <Boton style={PRINCIPAL} display="My profile" to='/myprofile'/>
       }
 
     }

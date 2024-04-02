@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import RecipeDetail from '../components/RecipeDetail/RecipeDetail'
 import { getRecByFriends, getRecByRecipe } from '../connect/query'
 import { useUserContext } from '../context/UserContext'
+import styles from './Home.module.css'
 
 export default function HomePage() {
   const {user} = useUserContext();
@@ -19,12 +20,12 @@ export default function HomePage() {
   },[])
 
   if(isLoading){
-    return <><p>cargando</p></>
+    return <div className={styles.container}><p className={styles.loading}>Loading...</p></div>
   }
   if(!isLoading && recRecipe )
   return (
     <div className='bg-white px-20 py-16'>
-        <h1 className='text-yellow py-8 text-3xl font-bold'>Porque te gusta probar cosas nuevas...</h1>
+        <h1 className='text-yellow py-8 text-3xl font-bold'>Because you love trying new things...</h1>
         <div className='flex flex-wrap gap-4 justify-center'>
 
         {recRecipe.map((r)=>{
@@ -32,7 +33,7 @@ export default function HomePage() {
           return <RecipeDetail recipe={r}/>
         })}
         </div>
-        <h1 className='text-yellow py-8 text-3xl font-bold'>Prueba con tus amigos !</h1>
+        <h1 className='text-yellow py-8 text-3xl font-bold'>try with your friends!</h1>
         <div className='flex flex-wrap gap-4 justify-center'>
 
         {recFriends.map((r)=>{

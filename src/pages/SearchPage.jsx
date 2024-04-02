@@ -22,7 +22,7 @@ export default function SearchPage() {
       
       return <>
       <div className='px-20 py-16'>
-        <h1 className='text-yellow py-8 text-3xl font-bold'>Resultados</h1>
+        <h1 className='text-yellow py-8 text-3xl font-bold'>{found.length !== 0 ? 'Results':'No results found'} </h1>
         <div className='flex flex-wrap gap-4 justify-center'>
         
         {found.map((f)=>{
